@@ -113,7 +113,7 @@ if st.session_state.profile is None:
                 st.session_state.matches = mock_get_matches(st.session_state.profile)
             
             st.success("Perfil analisado e vagas encontradas! Recarregando...")
-            st.experimental_rerun() # Força a recarga da página para a visão de "Matches"
+            st.rerun() # Força a recarga da página para a visão de "Matches"
 
 # --- Visão 2: O Dashboard (Se o perfil já existe) ---
 else:
@@ -153,7 +153,7 @@ else:
                         st.session_state.saved_jobs[job_id] = vaga
                         st.toast(f"Vaga '{vaga['title']}' salva!")
                         time.sleep(1)
-                        st.experimental_rerun() # Recarrega para mover o card
+                        st.rerun() # Recarrega para mover o card
                     
                     st.divider()
 
@@ -179,5 +179,5 @@ else:
                 if col_btn2.button("Remover", key=f"remove_{job_id}", use_container_width=True):
                     del st.session_state.saved_jobs[job_id]
                     st.toast("Vaga removida.")
-                    st.experimental_rerun()
+                    st.rerun()
                 st.divider()
